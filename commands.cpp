@@ -6,7 +6,7 @@
 Commands::Commands(Server * const sv) {
 	usrcmds = {
 		{"nick", std::bind(Commands::nick, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"pass", std::bind(Commands::pass, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"pass", std::bind(Commands::pass, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		{"tell", std::bind(Commands::tell, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		{"help", std::bind(Commands::help, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		{"modlogin", std::bind(Commands::modlogin, sv, this, std::placeholders::_1, std::placeholders::_2)},
@@ -15,33 +15,36 @@ Commands::Commands(Server * const sv) {
 	
 	modcmds = {
 		{"tp", std::bind(Commands::teleport, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"kickip", std::bind(Commands::kickip, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"kickip", std::bind(Commands::kickip, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		//{"banip", std::bind(Commands::banip, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"bans", std::bind(Commands::bans, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"whitelist", std::bind(Commands::whitelist, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"blacklist", std::bind(Commands::blacklist, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"bans", std::bind(Commands::bans, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"whitelist", std::bind(Commands::whitelist, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"blacklist", std::bind(Commands::blacklist, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		//{"setrank", std::bind(Commands::setrank, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		//{"whois", std::bind(Commands::whois, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		{"stealth", std::bind(Commands::stealth, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"mute", std::bind(Commands::mute, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"mute", std::bind(Commands::mute, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		//{"restrict", std::bind(Commands::restrict, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		{"getid", std::bind(Commands::getid, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"kick", std::bind(Commands::kick, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"kick", std::bind(Commands::kick, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		//{"lock", std::bind(Commands::lock, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		{"ids", std::bind(Commands::ids, sv, this, std::placeholders::_1, std::placeholders::_2)}
 	};
 
 	admincmds = {
-		//{"save", std::bind(Commands::save, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"kickall", std::bind(Commands::kickall, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"setprop", std::bind(Commands::setprop, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"save", std::bind(Commands::save, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"kickall", std::bind(Commands::kickall, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"setprop", std::bind(Commands::setprop, sv, this, std::placeholders::_1, std::placeholders::_2)},
 		{"getprop", std::bind(Commands::getprop, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"reload", std::bind(Commands::reload, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"lockdown", std::bind(Commands::lockdown, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"bansuspicious", std::bind(Commands::bansuspicious, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"worlds", std::bind(Commands::worlds, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"setpbucket", std::bind(Commands::setpbucket, sv, this, std::placeholders::_1, std::placeholders::_2)},
-		//{"doas", std::bind(Commands::doas, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"banip", std::bind(Commands::banip, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"whois", std::bind(Commands::whois, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"setrank", std::bind(Commands::setrank, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"reload", std::bind(Commands::reload, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"lockdown", std::bind(Commands::lockdown, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"bansuspicious", std::bind(Commands::bansuspicious, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"worlds", std::bind(Commands::worlds, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"setpbucket", std::bind(Commands::setpbucket, sv, this, std::placeholders::_1, std::placeholders::_2)},
+		{"doas", std::bind(Commands::doas, sv, this, std::placeholders::_1, std::placeholders::_2)},
     {"dev", std::bind(Commands::dev, sv, this, std::placeholders::_1, std::placeholders::_2)}
 	};
 }
