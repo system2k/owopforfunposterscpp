@@ -1,1 +1,1 @@
-web: $PORT yourpass yourpass yourpass
+web: ./out $PORT
